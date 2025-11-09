@@ -1,0 +1,2 @@
+cargo:rerun-if-changed=src/
+cargo:rustc-cfg=feature="ai_validation"

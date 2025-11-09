@@ -1,0 +1,14 @@
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\debug\deps\clang_sys-5defe8b14f5de612.d: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\support.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\link.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/macros.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/common.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/dynamic.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\debug\deps\libclang_sys-5defe8b14f5de612.rlib: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\support.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\link.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/macros.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/common.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/dynamic.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\debug\deps\libclang_sys-5defe8b14f5de612.rmeta: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\support.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\link.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/macros.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/common.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/dynamic.rs
+
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\lib.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\support.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clang-sys-1.8.1\src\link.rs:
+C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/macros.rs:
+C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/common.rs:
+C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\debug\build\clang-sys-e73baa5ca10e75eb\out/dynamic.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\INTEL\\Videos\\Zytherion Blockchain\\core\\target\\debug\\build\\clang-sys-e73baa5ca10e75eb\\out

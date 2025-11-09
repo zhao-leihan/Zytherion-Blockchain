@@ -1,0 +1,14 @@
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\serde-df7255e9b365de7b.d: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\release\build\serde-903a4c11ec945302\out/private.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\libserde-df7255e9b365de7b.rlib: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\release\build\serde-903a4c11ec945302\out/private.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\libserde-df7255e9b365de7b.rmeta: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\release\build\serde-903a4c11ec945302\out/private.rs
+
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs:
+C:\Users\INTEL\Videos\Zytherion\ Blockchain\core\target\release\build\serde-903a4c11ec945302\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\INTEL\\Videos\\Zytherion Blockchain\\core\\target\\release\\build\\serde-903a4c11ec945302\\out

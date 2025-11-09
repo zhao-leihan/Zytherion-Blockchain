@@ -1,0 +1,31 @@
+[package]
+name = "zytherion-core"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+ai-validation = []  # Add this feature
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+sha2 = "0.10"
+hex = "0.4"
+ring = "0.17"
+getrandom = "0.2"
+# Remove rocksdb for now to avoid compilation issues
+# rocksdb = "0.21"
+tokio = { version = "1.0", features = ["full"] }
+thiserror = "1.0"
+log = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+rand = "0.8"
+
+[dev-dependencies]
+tempfile = "3.8"
+
+[[bin]]
+name = "zytherion-core"
+path = "src/main.rs"

@@ -1,0 +1,19 @@
+# Logs
+logs/
+*.log
+
+# Chain data
+data/
+node/data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Local config (jangan upload secret!)
+config.local.yaml

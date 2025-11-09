@@ -1,0 +1,103 @@
+{
+  "chainId": 1777,
+  "chainName": "Zytherion",
+  "coin": "ZYTH",
+  "version": "1.0.0",
+  "timestamp": 1672531200,
+  "consensus": {
+    "type": "hybrid_pow_pos",
+    "pow_weight": 0.6,
+    "pos_weight": 0.4,
+    "block_time": 6,
+    "difficulty_adjustment_interval": 2016
+  },
+  "tokenomics": {
+    "total_supply": 100000000,
+    "premine": 10000000,
+    "block_reward": 5,
+    "halving_interval": 210000,
+    "halving_rate": 0.9,
+    "inflation_rate": 0.02,
+    "treasury_fee": 0.05,
+    "mining_reward_share": 0.6,
+    "staking_reward_share": 0.4
+  },
+  "staking": {
+    "minimum_stake": 1000,
+    "unbonding_period": 259200,
+    "slashing_conditions": {
+      "double_signing": 0.05,
+      "non_participation": 0.005
+    },
+    "max_validators": 100
+  },
+  "distribution": {
+    "development_fund": {
+      "address": "ZYTH_DEVFUND000000000000000000000000",
+      "amount": 10000000,
+      "purpose": "Development and ecosystem growth"
+    },
+    "community_airdrop": {
+      "address": "ZYTH_AIRDROP00000000000000000000000",
+      "amount": 15000000,
+      "purpose": "Community airdrop and incentives"
+    },
+    "mining_reserve": {
+      "address": "ZYTH_MINING0000000000000000000000000",
+      "amount": 75000000,
+      "purpose": "PoW mining and PoS staking rewards"
+    }
+  },
+  "genesis_block": {
+    "number": 0,
+    "hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "parent_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "timestamp": 1672531200,
+    "difficulty": 1,
+    "nonce": 0,
+    "validator_votes": [],
+    "transactions": [
+      {
+        "from": "ZYTH_GENESIS000000000000000000000000",
+        "to": "ZYTH_DEVFUND000000000000000000000000",
+        "amount": 10000000,
+        "fee": 0,
+        "nonce": 0,
+        "signature": "0x",
+        "timestamp": 1672531200,
+        "data": null
+      },
+      {
+        "from": "ZYTH_GENESIS000000000000000000000000",
+        "to": "ZYTH_AIRDROP00000000000000000000000",
+        "amount": 15000000,
+        "fee": 0,
+        "nonce": 1,
+        "signature": "0x",
+        "timestamp": 1672531200,
+        "data": null
+      },
+      {
+        "from": "ZYTH_GENESIS000000000000000000000000",
+        "to": "ZYTH_MINING0000000000000000000000000",
+        "amount": 75000000,
+        "fee": 0,
+        "nonce": 2,
+        "signature": "0x",
+        "timestamp": 1672531200,
+        "data": null
+      }
+    ]
+  },
+  "ai_validator": {
+    "confidence_threshold": 0.85,
+    "weight_in_consensus": 0.4,
+    "required_features": [
+      "tx_count",
+      "total_fee", 
+      "validator_consensus",
+      "anomaly_score_tx",
+      "timestamp_drift"
+    ]
+  }
+}

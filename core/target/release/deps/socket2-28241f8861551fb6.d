@@ -1,0 +1,11 @@
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\socket2-28241f8861551fb6.d: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockaddr.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\socket.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockref.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sys\windows.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\libsocket2-28241f8861551fb6.rlib: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockaddr.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\socket.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockref.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sys\windows.rs
+
+C:\Users\INTEL\Videos\Zytherion Blockchain\core\target\release\deps\libsocket2-28241f8861551fb6.rmeta: C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\lib.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockaddr.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\socket.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockref.rs C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sys\windows.rs
+
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\lib.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockaddr.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\socket.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sockref.rs:
+C:\Users\INTEL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.1\src\sys\windows.rs:

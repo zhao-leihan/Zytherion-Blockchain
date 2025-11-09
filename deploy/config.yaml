@@ -1,0 +1,57 @@
+# Zytherion Node Configuration
+
+network:
+  id: "zytherion-mainnet"
+  version: "1.0.0"
+  bootnodes:
+    - "/ip4/104.131.131.82/tcp/30303/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ"
+    - "/ip4/104.236.76.40/tcp/30303/p2p/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64"
+  max_peers: 50
+  min_peers: 5
+
+rpc:
+  enabled: true
+  host: "0.0.0.0"
+  port: 8545
+  cors_domains: ["*"]
+  api_modules: ["eth", "net", "web3", "zytherion"]
+
+mining:
+  enabled: true
+  thread_count: 1
+  gas_limit: 8000000
+  gas_price: "1000000000" # 1 Gwei
+  extra_data: "Zytherion-PoW"
+
+staking:
+  enabled: true
+  minimum_stake: 1000
+  validator_fee: 0.05 # 5% commission
+  unbonding_period: 259200 # 72 hours in seconds
+  max_validators: 100
+
+ai_validator:
+  enabled: true
+  service_url: "http://ai-validator:5000"
+  timeout: 30
+  fallback_score: 0.5
+  required_confidence: 0.85
+
+database:
+  type: "rocksdb"
+  path: "./data/chain"
+  cache_size: 1024 # MB
+
+logging:
+  level: "info"
+  file: "./logs/zytherion.log"
+  max_size: 100 # MB
+  max_backups: 3
+
+metrics:
+  enabled: true
+  port: 6060
+  path: "/metrics"
+
+# Genesis configuration
+genesis: "./genesis.json"

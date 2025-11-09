@@ -1,0 +1,157 @@
+name: Build and Test Zytherion
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-rust:
+    name: Test Rust Core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          
+      - name: Cache cargo registry
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          
+      - name: Build
+        run: cd core && cargo build --verbose
+        
+      - name: Run tests
+        run: cd core && cargo test --verbose
+        
+      - name: Clippy check
+        run: cd core && cargo clippy -- -D warnings
+        
+      - name: Format check
+        run: cd core && cargo fmt -- --check
+
+  test-go:
+    name: Test Go Node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.21'
+          
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/go/pkg/mod
+            node/go.sum
+          key: ${{ runner.os }}-go-${{ hashFiles('node/go.sum') }}
+          
+      - name: Build
+        run: cd node && go build -v ./...
+        
+      - name: Run tests
+        run: cd node && go test -v ./...
+        
+      - name: Vet check
+        run: cd node && go vet ./...
+
+  test-python:
+    name: Test Python AI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Cache Python packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('ai_validator/requirements.txt') }}
+          
+      - name: Install dependencies
+        run: |
+          cd ai_validator
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+          
+      - name: Run tests
+        run: |
+          cd ai_validator
+          python -m pytest -v --cov=. --cov-report=xml
+        
+      - name: Type check
+        run: |
+          pip install mypy
+          cd ai_validator
+          mypy --ignore-missing-imports .
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run cargo audit
+        uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Semgrep scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/ci
+
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    needs: [test-rust, test-go, test-python]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Docker
+        run: |
+          docker-compose -f deploy/docker-compose.yml up -d
+          sleep 30
+          
+      - name: Run integration tests
+        run: |
+          # Test node RPC
+          curl -X POST http://localhost:8545 -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}'
+          
+          # Test AI validator
+          curl http://localhost:5000/health
+          
+      - name: Teardown
+        if: always()
+        run: docker-compose -f deploy/docker-compose.yml down
+
+  deploy-docs:
+    name: Deploy Documentation
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [integration-test]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
