@@ -1,4 +1,4 @@
-[https://github.com/zhao-leihan/Zytherion-Blockchain/blob/main/Banner.png?raw=true]
+![Running Node](https://github.com/zhao-leihan/Zytherion-Blockchain/blob/main/Banner.png?raw=true)
 
 # Zytherion Blockchain
 
