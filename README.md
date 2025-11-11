@@ -1,3 +1,5 @@
+[https://github.com/zhao-leihan/Zytherion-Blockchain/blob/main/Banner.png?raw=true]
+
 # Zytherion Blockchain
 
 Zytherion is a hybrid Layer-1 blockchain that combines **Proof of Work (PoW)** and **Proof of Stake (PoS)** consensus mechanisms.  
