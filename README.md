@@ -46,6 +46,8 @@ cd ../ai-validator
 pip install -r requirements.txt
 ```
 
+---
+
 ### 3. Running Zytherion Node
 ##### Start a Zytherion node:
 
@@ -66,6 +68,8 @@ Copy code
 http://localhost:8545
 ```
 
+---
+
 ## 📊 Monitoring Dashboard
 ### Run monitoring stack with Docker:
 
@@ -85,6 +89,8 @@ Password: admin
 
 ```
 
+---
+
 ## 🪙 Tokenomics (Zyth Coin)
 - Parameter	Description
 - Token Name	: Zyth
@@ -94,6 +100,8 @@ Password: admin
 - Max Supply :	21,000,000 ZYTH
 - Staking Reward :	Dynamic (AI-optimized)
 
+---
+
 ## 🧠 Future Roadmap
  - Core PoW engine in Rust
  - Go-based node with P2P networking
@@ -101,6 +109,8 @@ Password: admin
  - AI validator with TensorFlow
  - Smart contract SDK (WASM runtime)
  - Testnet launch
+
+---
 
 ## 🧑‍💻 Contributors
 - @zhao-leihan — Lead Developer, Architect, Blockchain Developer, Backend Developer
