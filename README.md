@@ -86,13 +86,13 @@ Password: admin
 ```
 
 ## 🪙 Tokenomics (Zyth Coin)
-Parameter	Description
-Token Name	Zyth
-Symbol	ZYTH
-Consensus	PoW + PoS Hybrid
-Block Reward	3 ZYTH
-Max Supply	21,000,000 ZYTH
-Staking Reward	Dynamic (AI-optimized)
+- Parameter	Description
+- Token Name	: Zyth
+- Symbol	: ZYTH
+- Consensus	: PoW + PoS Hybrid
+- Block Reward	: 3 ZYTH
+- Max Supply :	21,000,000 ZYTH
+- Staking Reward :	Dynamic (AI-optimized)
 
 ## 🧠 Future Roadmap
  - Core PoW engine in Rust
@@ -103,8 +103,8 @@ Staking Reward	Dynamic (AI-optimized)
  - Testnet launch
 
 ## 🧑‍💻 Contributors
-@zhao-leihan — Lead Developer, Architect, Blockchain Developer, Backend Developer
-@BabyGracia - Support System
+- @zhao-leihan — Lead Developer, Architect, Blockchain Developer, Backend Developer
+- @BabyGracia - Support System
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
