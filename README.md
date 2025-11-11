@@ -25,21 +25,21 @@ cd Zytherion-Blockchain
 ```
 
 ### 2️. Build Core Components
-#### Rust (Core)
+##### Rust (Core)
 
 ```bash
 cd core
 cargo build --release
 ```
 
-#### Go (Node)
+##### Go (Node)
 
 ```bash
 cd ../node
 go build -o zytherion-node.exe .
 ```
 
-#### Python (AI Validator)
+##### Python (AI Validator)
 
 ```bash
 cd ../ai-validator
