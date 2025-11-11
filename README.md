@@ -1,4 +1,4 @@
-# Zytherion Blockchain
+### Zytherion Blockchain
 
 Zytherion is a hybrid Layer-1 blockchain that combines **Proof of Work (PoW)** and **Proof of Stake (PoS)** consensus mechanisms.  
 It’s designed for high-performance decentralized applications, integrating **AI-powered validation** for enhanced security and efficiency.
@@ -16,47 +16,16 @@ It’s designed for high-performance decentralized applications, integrating **A
 
 ---
 
-## 🏗️ Project Structure
-
-zytherion/
-├── core/ # Rust core (crypto, PoW engine, WASM runtime)
-│ ├── src/
-│ │ ├── crypto.rs
-│ │ ├── pow.rs
-│ │ ├── lib.rs
-│ │ └── wasm.rs
-│ └── Cargo.toml
-│
-├── node/ # Go-based networking and CLI node
-│ ├── cmd/
-│ ├── p2p/
-│ ├── rpc/
-│ ├── main.go
-│ └── go.mod
-│
-├── ai-validator/ # Python TensorFlow-based validator
-│ ├── model/
-│ ├── validator.py
-│ └── requirements.txt
-│
-├── deploy/ # Docker & CI/CD setup
-│ ├── docker-compose.yml
-│ ├── grafana/
-│ └── scripts/
-│
-└── docs/ # Documentation & specs
-└── whitepaper.md
-
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone the Repository
+# 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/zhao-leihan/Zytherion-Blockchain.git
 cd Zytherion-Blockchain
 ```
 
-### 2️⃣ Build Core Components
-## Rust (Core)
+# 2️⃣ Build Core Components
+# Rust (Core)
 
 ```bash
 Copy code
@@ -64,7 +33,7 @@ cd core
 cargo build --release
 ```
 
-## Go (Node)
+# Go (Node)
 
 ```bash
 Copy code
@@ -72,7 +41,7 @@ cd ../node
 go build -o zytherion-node.exe .
 ```
 
-## Python (AI Validator)
+# Python (AI Validator)
 
 ```bash
 Copy code
