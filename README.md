@@ -18,13 +18,13 @@ It’s designed for high-performance decentralized applications, integrating **A
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1️. Clone the Repository
 ```bash
 git clone https://github.com/zhao-leihan/Zytherion-Blockchain.git
 cd Zytherion-Blockchain
 ```
 
-### 2️⃣ Build Core Components
+### 2️. Build Core Components
 #### Rust (Core)
 
 ```bash
@@ -46,7 +46,7 @@ cd ../ai-validator
 pip install -r requirements.txt
 ```
 
-### Running Zytherion Node
+### 3. Running Zytherion Node
 #### Start a Zytherion node:
 
 ```bash
