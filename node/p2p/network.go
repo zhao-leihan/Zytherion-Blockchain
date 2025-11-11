@@ -2,6 +2,7 @@ package p2p
 
 import (
 	"context"
+	"fmt" // TAMBAHKAN IMPORT INI
 	"log"
 	"time"
 
@@ -29,7 +30,7 @@ func NewNetwork(port int, dataDir string) (*Network, error) {
 	// Create libp2p host
 	h, err := libp2p.New(
 		libp2p.ListenAddrStrings(
-			format.Sprintf("/ip4/0.0.0.0/tcp/%d", port),
+			fmt.Sprintf("/ip4/0.0.0.0/tcp/%d", port),
 		),
 	)
 	if err != nil {

@@ -1,25 +1,20 @@
-version: '3.8'
-
 services:
-  # Zytherion Core Node
   zytherion-node:
     build:
       context: ..
       dockerfile: deploy/Dockerfile.node
     ports:
-      - "8545:8545"  # RPC
-      - "30303:30303" # P2P
+      - "8545:8545"
+      - "30303:30303"
     volumes:
       - node-data:/root/data
+      - ./block-logs:/root/data:rw  # Mount host directory for logs
     environment:
-      - NETWORK=mainnet
-      - RPC_PORT=8545
-      - P2P_PORT=30303
-    command: ["--mine", "--validator"]
+      - NETWORK=testnet
+    command: ["./zytherion-node", "--mine", "--validator", "--datadir", "./data", "--aivalidator", "http://ai-validator:5000"]
     networks:
       - zytherion-net
 
-  # AI Validator Service
   ai-validator:
     build:
       context: ..
@@ -28,14 +23,13 @@ services:
       - "5000:5000"
     volumes:
       - ai-models:/app/models
+      - ./block-logs:/app/data:rw  # Share the same log directory
     environment:
-      - MODEL_PATH=/app/models/block_validator.h5
       - API_HOST=0.0.0.0
       - API_PORT=5000
     networks:
       - zytherion-net
 
-  # Monitoring Dashboard
   monitor:
     image: grafana/grafana:latest
     ports:
@@ -45,6 +39,7 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./block-logs:/var/lib/grafana/block-logs:ro  # Read logs for monitoring
     networks:
       - zytherion-net
 

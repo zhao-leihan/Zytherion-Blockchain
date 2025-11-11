@@ -11,28 +11,27 @@ var rootCmd = &cobra.Command{
 	Use:   "zytherion",
 	Short: "Zytherion Blockchain Node",
 	Long:  "A hybrid PoW + PoS blockchain with AI validation",
+	Run: func(cmd *cobra.Command, args []string) {
+		// This runs when no subcommand is provided
+		fmt.Println("Zytherion Node - use 'zytherion start' to start the node")
+	},
 }
 
 func Execute(node interface{}) error {
-	// Add subcommands
-	rootCmd.AddCommand(
-		startCmd(node),
-		accountCmd(),
-		stakingCmd(node),
-		contractCmd(),
-		statusCmd(node),
-	)
-
+	// Add start command
+	rootCmd.AddCommand(startCmd())
 	return rootCmd.Execute()
 }
 
-func startCmd(node interface{}) *cobra.Command {
+func startCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "start",
 		Short: "Start the Zytherion node",
 		Run: func(cmd *cobra.Command, args []string) {
 			log.Println("Starting Zytherion node...")
 			// Node startup logic would be here
+			// For now, just indicate it's starting
+			log.Println("Node startup initiated via CLI")
 		},
 	}
 }

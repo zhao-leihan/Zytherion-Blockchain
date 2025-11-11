@@ -2,7 +2,6 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 import numpy as np
-import json
 import logging
 from typing import Dict, List, Tuple, Optional
 
@@ -26,7 +25,9 @@ class AIValidator:
             self.build_model()
     
     def build_model(self) -> None:
-        """Build the neural network model for block validation"""
+        """Build the neural network model for block validation menggunakan TensorFlow"""
+        logger.info("🔧 Building TensorFlow model for block validation...")
+        
         self.model = keras.Sequential([
             layers.Dense(64, activation='relu', input_shape=(len(self.feature_names),)),
             layers.Dropout(0.2),
@@ -42,12 +43,14 @@ class AIValidator:
             metrics=['accuracy', 'precision', 'recall']
         )
         
-        logger.info("AI Validator model built successfully")
+        logger.info("✅ TensorFlow model built successfully")
     
-    def train(self, X: np.ndarray, y: np.ndarray, epochs: int = 100) -> None:
+    def train(self, X: np.ndarray, y: np.ndarray, epochs: int = 100) -> tf.keras.callbacks.History:
         """Train the model on historical block data"""
         if self.model is None:
             self.build_model()
+        
+        logger.info(f"🏋️ Training model with {len(X)} samples for {epochs} epochs...")
         
         history = self.model.fit(
             X, y,
@@ -57,112 +60,137 @@ class AIValidator:
             verbose=1
         )
         
-        logger.info(f"Model training completed with final accuracy: {history.history['accuracy'][-1]:.4f}")
+        final_accuracy = history.history['accuracy'][-1]
+        logger.info(f"✅ Model training completed - Final Accuracy: {final_accuracy:.4f}")
+        return history
     
     def predict(self, features: Dict[str, float]) -> Dict[str, float]:
-        """Predict block validity score"""
+        """Predict block validity score using TensorFlow model"""
         if self.model is None:
-            return {'score': 0.5, 'decision': 'unknown'}
+            logger.warning("❌ Model not loaded, using fallback prediction")
+            return {'score': 0.5, 'decision': 'UNKNOWN', 'confidence': 0.0}
         
-        # Convert features to array in correct order
-        feature_array = np.array([[features.get(name, 0.0) for name in self.feature_names]])
-        
-        # Make prediction
-        score = float(self.model.predict(feature_array, verbose=0)[0][0])
-        
-        # Make decision
-        decision = "accept" if score > 0.85 else "reject" if score < 0.6 else "review"
-        
-        return {
-            'score': score,
-            'decision': decision,
-            'confidence': abs(score - 0.5) * 2  # How confident is the model
-        }
+        try:
+            # Convert features to array in correct order
+            feature_array = np.array([[features.get(name, 0.0) for name in self.feature_names]])
+            
+            # Make prediction dengan TensorFlow
+            score = float(self.model.predict(feature_array, verbose=0)[0][0])
+            
+            # Make decision based on score
+            if score > 0.85:
+                decision = "ACCEPT"
+                emoji = "✅"
+            elif score > 0.60:
+                decision = "REVIEW"
+                emoji = "⚠️"
+            else:
+                decision = "REJECT"
+                emoji = "❌"
+            
+            logger.info(f"{emoji} AI PREDICTION - Score: {score:.3f} - Decision: {decision}")
+            
+            return {
+                'score': score,
+                'decision': decision,
+                'confidence': abs(score - 0.5) * 2,
+                'model': 'TensorFlow_MLP_v1.0'
+            }
+            
+        except Exception as e:
+            logger.error(f"❌ Prediction error: {e}")
+            return {'score': 0.5, 'decision': 'ERROR', 'error': str(e)}
     
     def save_model(self, path: str) -> None:
-        """Save the trained model"""
+        """Save the trained TensorFlow model"""
         if self.model:
             self.model.save(path)
-            logger.info(f"Model saved to {path}")
+            logger.info(f"💾 Model saved to {path}")
     
     def load_model(self, path: str) -> None:
-        """Load a pre-trained model"""
+        """Load a pre-trained TensorFlow model"""
         try:
             self.model = keras.models.load_model(path)
-            logger.info(f"Model loaded from {path}")
+            logger.info(f"📂 Model loaded from {path}")
         except Exception as e:
-            logger.error(f"Failed to load model: {e}")
+            logger.error(f"❌ Failed to load model: {e}")
+            logger.info("🆕 Building new model instead...")
             self.build_model()
 
-class FeatureExtractor:
-    """Extract features from blocks and transactions for AI validation"""
+class BlockFeatureEngine:
+    """Feature engineering untuk blockchain validation"""
     
-    @staticmethod
-    def extract_block_features(block_data: Dict) -> Dict[str, float]:
-        """Extract relevant features from block data"""
+    def __init__(self):
+        self.history_window = 100
+        self.feature_cache = {}
+    
+    def extract_features(self, block_data: Dict) -> Dict[str, float]:
+        """Extract features from block data untuk model TensorFlow"""
         features = {}
         
-        # Transaction features
+        # Basic block features
         features['tx_count'] = len(block_data.get('transactions', []))
         features['total_fee'] = sum(tx.get('fee', 0) for tx in block_data.get('transactions', []))
-        
-        # Block structure features
         features['block_size'] = block_data.get('size', 0)
-        features['timestamp_drift'] = abs(block_data.get('timestamp', 0) - block_data.get('expected_timestamp', 0))
         
-        # Miner/validator features
-        features['miner_reputation'] = block_data.get('miner_reputation', 0.5)
-        features['validator_consensus'] = len(block_data.get('validator_votes', [])) / max(1, block_data.get('total_validators', 1))
+        # Temporal features
+        current_time = tf.timestamp() if hasattr(tf, 'timestamp') else 0
+        features['timestamp_drift'] = abs(block_data.get('timestamp', 0) - current_time)
         
         # Network features
+        features['miner_reputation'] = block_data.get('miner_reputation', 0.5)
+        features['validator_consensus'] = len(block_data.get('validator_votes', [])) / max(1, block_data.get('total_validators', 1))
         features['gas_used_ratio'] = block_data.get('gas_used', 0) / max(1, block_data.get('gas_limit', 1))
         features['uncle_count'] = len(block_data.get('uncles', []))
+        
+        # Economic features
         features['difficulty_change'] = block_data.get('difficulty_change', 0.0)
         features['network_hashrate_change'] = block_data.get('hashrate_change', 0.0)
-        
-        # Staking features
         features['stake_distribution'] = block_data.get('stake_distribution_gini', 0.5)
         features['voting_participation'] = block_data.get('voting_participation', 0.0)
         
         # Historical features
         features['ai_confidence_prev'] = block_data.get('prev_ai_confidence', 0.5)
-        features['anomaly_score_tx'] = FeatureExtractor.calculate_tx_anomaly_score(block_data.get('transactions', []))
+        features['anomaly_score_tx'] = self.calculate_tx_anomaly(block_data.get('transactions', []))
         features['memory_pool_size'] = block_data.get('mempool_size', 0)
         
         # Normalize features
-        features = FeatureExtractor.normalize_features(features)
+        features = self.normalize_features(features)
         
         return features
     
-    @staticmethod
-    def calculate_tx_anomaly_score(transactions: List[Dict]) -> float:
-        """Calculate anomaly score for transactions in block"""
+    def calculate_tx_anomaly(self, transactions: List[Dict]) -> float:
+        """Calculate transaction anomaly score menggunakan TensorFlow operations"""
         if not transactions:
             return 0.0
         
-        # Simple anomaly detection based on value distribution
-        values = [tx.get('amount', 0) for tx in transactions]
-        if not values:
+        try:
+            # Extract transaction values
+            values = [tx.get('amount', 0) for tx in transactions]
+            values_tensor = tf.constant(values, dtype=tf.float32)
+            
+            # Calculate statistics dengan TensorFlow
+            mean_val = tf.reduce_mean(values_tensor)
+            std_val = tf.math.reduce_std(values_tensor)
+            
+            if std_val == 0:
+                return 0.0
+            
+            # Calculate z-scores
+            z_scores = tf.abs((values_tensor - mean_val) / std_val)
+            anomaly_count = tf.reduce_sum(tf.cast(z_scores > 2.0, tf.float32))
+            
+            return float(anomaly_count / len(transactions))
+            
+        except Exception as e:
+            logger.error(f"Anomaly calculation error: {e}")
             return 0.0
-        
-        mean_val = np.mean(values)
-        std_val = np.std(values)
-        
-        if std_val == 0:
-            return 0.0
-        
-        # Calculate how many transactions are outliers
-        z_scores = [abs(val - mean_val) / std_val for val in values]
-        anomaly_count = sum(1 for z in z_scores if z > 2)  # Beyond 2 standard deviations
-        
-        return anomaly_count / len(transactions)
     
-    @staticmethod
-    def normalize_features(features: Dict[str, float]) -> Dict[str, float]:
+    def normalize_features(self, features: Dict[str, float]) -> Dict[str, float]:
         """Normalize features to 0-1 range"""
         normalized = {}
         
-        # Define normalization ranges for each feature
+        # Define normalization ranges
         ranges = {
             'tx_count': (0, 10000),
             'total_fee': (0, 1000000),
@@ -185,9 +213,9 @@ class FeatureExtractor:
             if feature in ranges:
                 min_val, max_val = ranges[feature]
                 # Scale to 0-1
-                normalized[feature] = (value - min_val) / (max_val - min_val)
+                normalized_val = (value - min_val) / (max_val - min_val)
                 # Clip to [0, 1]
-                normalized[feature] = max(0.0, min(1.0, normalized[feature]))
+                normalized[feature] = max(0.0, min(1.0, normalized_val))
             else:
                 normalized[feature] = value
         
