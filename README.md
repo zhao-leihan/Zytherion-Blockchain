@@ -47,21 +47,21 @@ pip install -r requirements.txt
 ```
 
 ### 3. Running Zytherion Node
-#### Start a Zytherion node:
+##### Start a Zytherion node:
 
 ```bash
 Copy code
 ./zytherion-node.exe start
 ```
 
-#### Optional flags:
+##### Optional flags:
 ```Bash
 --mine          Enable mining mode
 --validate      Run validator node
 --rpc           Enable RPC server (default: true)
 ```
 
-#### Access the RPC endpoint:
+##### Access the RPC endpoint:
 ```bash
 http://localhost:8545
 ```
