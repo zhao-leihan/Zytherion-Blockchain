@@ -28,7 +28,6 @@ cd Zytherion-Blockchain
 #### Rust (Core)
 
 ```bash
-Copy code
 cd core
 cargo build --release
 ```
@@ -36,7 +35,6 @@ cargo build --release
 #### Go (Node)
 
 ```bash
-Copy code
 cd ../node
 go build -o zytherion-node.exe .
 ```
@@ -44,42 +42,39 @@ go build -o zytherion-node.exe .
 #### Python (AI Validator)
 
 ```bash
-Copy code
 cd ../ai-validator
 pip install -r requirements.txt
 ```
 
 ### Running Zytherion Node
-## Start a Zytherion node:
+#### Start a Zytherion node:
 
 ```bash
 Copy code
 ./zytherion-node.exe start
 ```
 
-## Optional flags:
+#### Optional flags:
 ```Bash
 --mine          Enable mining mode
 --validate      Run validator node
 --rpc           Enable RPC server (default: true)
 ```
 
-## Access the RPC endpoint:
+#### Access the RPC endpoint:
 ```bash
 http://localhost:8545
 ```
 
-📊 Monitoring Dashboard
-Run monitoring stack with Docker:
+## 📊 Monitoring Dashboard
+### Run monitoring stack with Docker:
 
-bash
-Copy code
+```bash
 cd deploy
 docker-compose up -d
+```
 Access Grafana at:
-
-arduino
-Copy code
+```bash
 http://localhost:3000
 Default credentials:
 
@@ -87,7 +82,10 @@ pgsql
 Copy code
 User: admin
 Password: admin
-🪙 Tokenomics (Zyth Coin)
+
+```
+
+## 🪙 Tokenomics (Zyth Coin)
 Parameter	Description
 Token Name	Zyth
 Symbol	ZYTH
@@ -96,21 +94,17 @@ Block Reward	3 ZYTH
 Max Supply	21,000,000 ZYTH
 Staking Reward	Dynamic (AI-optimized)
 
-🧠 Future Roadmap
- Core PoW engine in Rust
+## 🧠 Future Roadmap
+ - Core PoW engine in Rust
+ - Go-based node with P2P networking
+ - Grafana integration for monitoring
+ - AI validator with TensorFlow
+ - Smart contract SDK (WASM runtime)
+ - Testnet launch
 
- Go-based node with P2P networking
+## 🧑‍💻 Contributors
+@zhao-leihan — Lead Developer, Architect, Blockchain Developer, Backend Developer
+@BabyGracia - Support System
 
- Grafana integration for monitoring
-
- AI validator with TensorFlow
-
- Smart contract SDK (WASM runtime)
-
- Testnet launch
-
-🧑‍💻 Contributors
-@zhao-leihan — Lead Developer / Architect
-
-@rayhan — Core Engineer (Rust, AI Validator)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
